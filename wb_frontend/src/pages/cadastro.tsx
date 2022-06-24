@@ -10,7 +10,7 @@ function CadastroClientes (){
                 <Navbar/>
                 <div className='topo'>
                         <div className="row box">
-                                <h4 className='subtitulo'>Cadastro de Cliente</h4>
+                                <h4 className='subtitulo margin_left'>Cadastro de Cliente</h4>
                                 <div className="row">
                                     <form className="col s12">
                                         <div className="row">

@@ -45,17 +45,24 @@ function User (){
                                             <div className="input-field col s6">
                                                 <input type="text" className="validate" placeholder= "Informações Adicionais" />
                                             </div>
-                                            <div className="row">
-                                                <div className="col s12">
-                                                    <button className='btn waves-effect waves-light botao' type="submit" name="action">Salvar
-                                                    </button>
+                                            <div className='input-field col s6 botoes_user margin_left'>
+                                                <div className="row">
+                                                    <div className="col s12">
+                                                        <button className='btn waves-effect waves-light botao' type="submit" name="action">Salvar
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div className="row">
+                                                    <div className="col s12">
+                                                        <button className='btn waves-effect waves-light botao_cancelar' type="submit" name="action">Cancelar
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>                       
                         </div>
-                        <br />
                 </div>
         </>
     )

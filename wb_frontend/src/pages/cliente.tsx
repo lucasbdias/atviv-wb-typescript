@@ -18,11 +18,11 @@ function Clientes (){
                     <br />
                     <br />
                     <main>
-                        <div className="leftWrapper">
+                        <div>
                             <br />
                             <div className='col s12 m12 l6 estilo'>
                                 <div className="box">
-                                    <h4>Clientes</h4>
+                                    <h4 className='margin_left'>Clientes</h4>
                                     <table className="responsive-table highlight">
                                         <thead>
                                             <tr>
