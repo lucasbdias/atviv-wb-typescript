@@ -35,7 +35,7 @@ function Clientes (){
                                             <tr>
                                                 <td>Lucas Braz</td>
                                                 <td>lucas.b@gmail.com</td>
-                                                <td><Link className='edit' to="/"><MdModeEdit/></Link></td>
+                                                <td><Link className='edit' to="/user/:id"><MdModeEdit/></Link></td>
                                             </tr>
                                             <tr>
                                                 <td>Gabriel Bicho Nnes</td>
