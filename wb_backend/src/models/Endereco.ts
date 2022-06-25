@@ -7,7 +7,7 @@ import {
  @Entity()
  export class Endereco {
    @PrimaryGeneratedColumn({ type: 'int' })
-   id!:  string;
+   id?:  number;
 
    @Column({
      type: "varchar",
