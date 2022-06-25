@@ -3,13 +3,50 @@ import '../styles/cadastro.css'
 import  Navbar  from '../components/nav';
 import { MdModeEdit } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { useEffect, useState, useCallback, SetStateAction } from 'react';
+import { AxiosError } from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { api } from '../services/api';
 
-
-type props = {
-    tema: string
-}
+interface IEndereco {
+    nome: string;
+    sobreNome: string;
+    id: number;
+    estado: string;
+    cidade: string;
+    bairro: string;
+    rua: string;
+    numero: number;
+    codigoPostal: string;
+    informacoesAdicionais: string;
+  }
 
 function Clientes (){
+
+    //const navigate = useNavigate(); 
+    const [clientes, setClientes] = useState<IEndereco[]>([]);
+  
+    const getAllClientes = useCallback(() => {
+      api
+        .get('/clientes', {
+        })
+        .then(({ data }) => {
+          console.log(data);
+          setClientes(data);
+        })
+        .catch((error: Error | AxiosError) => {
+          console.log(error);
+        });
+      setTimeout(() => {
+      }, 5000);
+    }, [setClientes]);
+  
+    useEffect(() => {
+      getAllClientes();
+    }, []);
+
+
+
         return (
             <> 
 
@@ -32,19 +69,22 @@ function Clientes (){
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Lucas Braz</td>
-                                                <td>lucas.b@gmail.com</td>
-                                                <td><Link className='edit' to="/user/:id"><MdModeEdit/></Link></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gabriel Bicho Nnes</td>
-                                                <td>gabriel.nunes@gmail.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Lucas Ferreira</td>
-                                                <td>lucas.ferreira@gmail.com</td>
-                                            </tr>
+                                        {clientes && clientes?.map(c => {
+                                                    return (
+                                                        <tr>
+                                                            <td>{c.nome}</td>
+                                                            <td>{c.sobreNome}</td>
+{/*                                                             <td>{c.estado}</td>
+                                                            <td>{c.cidade}</td>
+                                                            <td>{c.bairro}</td>
+                                                            <td>{c.rua}</td>
+                                                            <td>{c.numero}</td>
+                                                            <td>{c.codigoPostal}</td>
+                                                            <td>{c.informacoesAdicionais}</td> */}
+                                                            <td><Link className='edit' to="/user/:id"><MdModeEdit/></Link></td>
+                                                        </tr>
+                                                    )
+                                                })}
                                         </tbody>
                                     </table>
                                 </div>
